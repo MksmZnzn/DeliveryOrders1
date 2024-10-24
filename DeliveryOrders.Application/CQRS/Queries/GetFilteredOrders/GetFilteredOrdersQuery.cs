@@ -11,16 +11,15 @@ namespace DeliveryOrders.Application.CQRS.Queries
 {
     public class GetFilteredOrdersQuery : IRequest<List<Order>>
     {
-        [Required]
         public string District { get; }
         public DateTime FromTime { get; }
-        public DateTime ToTime { get; }
+        
 
-        public GetFilteredOrdersQuery(string district, DateTime fromTime, DateTime toTime)
+        public GetFilteredOrdersQuery(string district, DateTime fromTime)
         {
             District = district;
             FromTime = fromTime;
-            ToTime = toTime;
+            
         }
     }
 }

@@ -10,6 +10,6 @@ namespace DeliveryOrders.Application.Interfaces.Repositories
     public interface IDeliveryOrdersRepository
     {
         Task<List<Order>> GetAllOrdersAsync();
-        Task<List <Order>> GetFilteredOrdersAsync();
+        Task<List <Order>> GetFilteredOrdersAsync(String diistrict, DateTime dateFrom);
     }
 }

@@ -39,7 +39,7 @@ namespace DeliveryOrders.WebApi.Controllers
         //    .ToArray();
         //}
         /// <summary>
-        /// Получаем список заказов
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         /// </summary>
         /// <returns></returns>
         [HttpGet(Name = "GetAllOrders")]
@@ -51,10 +51,10 @@ namespace DeliveryOrders.WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpGet("filter")]
-        public async Task<IActionResult> GetFilteredOrders([FromQuery] string district, [FromQuery] DateTime fromTime, [FromQuery] DateTime toTime)
+        [HttpGet("filtered")]
+        public async Task<IActionResult> GetFilteredOrders([FromQuery] string district, [FromQuery] DateTime fromTime)
         {
-            var query = new GetFilteredOrdersQuery(district, fromTime, toTime);
+            var query = new GetFilteredOrdersQuery(district, fromTime);
             var orders = await _mediator.Send(query);
             return Ok(orders);
         }
