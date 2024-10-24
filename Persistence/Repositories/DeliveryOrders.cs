@@ -25,13 +25,13 @@ public class DeliveryOrdersRepository : IDeliveryOrdersRepository
     }
 
     public async Task<List<Order>> GetAllOrdersAsync() => await Task.FromResult(orders);
-    public async Task<List<Order>> GetFilteredOrdersAsync(string diistrict, DateTime dateFrom)
+    public async Task<List<Order>> GetFilteredOrdersAsync(string district, DateTime dateFrom)
     {
-        DateTime timeRangeEnd = dateFrom.AddMinutes(30);
+        DateTime timeRangeEnd = dateFrom.AddMinutes(-30);
 
-        var filteredOrders = orders.Where(o => o.District == diistrict
-                                               && o.DeliveryTime >= dateFrom
-                                               && o.DeliveryTime <= timeRangeEnd)
+        var filteredOrders = orders.Where(o => o.District == district
+                                               && o.DeliveryTime <= dateFrom
+                                               && o.DeliveryTime >= timeRangeEnd)
             .ToList();
         return await Task.FromResult(filteredOrders);
     }

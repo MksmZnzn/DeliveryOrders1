@@ -15,14 +15,14 @@ namespace Persistence
         public static IServiceCollection AddPersistenceLayer(this IServiceCollection services)
         {
             // Регистрируем репозиторий заказов
-            services.AddScoped<IDeliveryOrdersRepository, DeliveryOrdersRepository>();
+            
             services.AddRepositories();
 
             return services;
         }
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped<IDeliveryOrdersRepository, DeliveryOrdersRepository>();
+            services.AddSingleton<IDeliveryOrdersRepository, DeliveryOrdersRepository>();
 
             return services;
         }
